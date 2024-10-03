@@ -42,6 +42,20 @@ export class LinechartComponent implements OnInit {
       ],
     },
 
+    options: {
+      aspectRatio: 4,
+      onClick: (event: any, elements: any) => {
+        if (elements.length > 0) {
+          const datasetIndex = elements[0].datasetIndex;
+          const dataIndex = elements[0].index;
+
+          const value = this.lineConfig.data.datasets[datasetIndex].data[dataIndex];
+
+          this.updateSemaforo(value);
+        }
+      },
+    },
+
   };
 
   public barConfig: any = {
@@ -75,6 +89,35 @@ export class LinechartComponent implements OnInit {
     const barCanvas = document.getElementById('MyBarChart') as HTMLCanvasElement;
     if (barCanvas) {
       new Chart(barCanvas, this.barConfig);
+    }
+  }
+
+  updateSemaforo(value: number): void {
+    const redLight = document.getElementById('red-light') as HTMLElement;
+    const yellowLight = document.getElementById('yellow-light') as HTMLElement;
+    const greenLight = document.getElementById('green-light') as HTMLElement;
+    const semaforoMessage = document.getElementById('semaforo-message') as HTMLElement;
+
+    if (redLight && yellowLight && greenLight && semaforoMessage) {
+
+      redLight.style.backgroundColor = 'grey';
+      yellowLight.style.backgroundColor = 'grey';
+      greenLight.style.backgroundColor = 'grey';
+
+      semaforoMessage.textContent = "Estado del valor";
+
+      if (value >= 600) {
+        redLight.style.backgroundColor = 'red';
+        semaforoMessage.textContent = "Valor negativo";
+      } else if (value >= 400) {
+        yellowLight.style.backgroundColor = 'yellow';
+        semaforoMessage.textContent = "Valor regular";
+      } else if (value >= 200) {
+        greenLight.style.backgroundColor = 'green';
+        semaforoMessage.textContent = "Valor positivo";
+      }
+    } else {
+      console.error('No se pudieron encontrar los elementos del semáforo');
     }
   }
 
