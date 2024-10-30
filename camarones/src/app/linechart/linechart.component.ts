@@ -16,27 +16,27 @@ export class LinechartComponent implements OnInit {
   public lineConfig: any = {
     type: 'line',
     data: {
-      labels: ['CANTIDAD', 'PESO'],
+      labels: ['Enero', 'Febrero', 'Marzo', 'Abril'],
       datasets: [
         {
-          label: 'COMPRAS',
+          label: 'Temperatura',
           data: ['467', '576', '600', '574'],
           fill: false,
-          borderColor: '#A8699F',
+          borderColor: '#FF336B',
           tension: 0.1,
         },
         {
-          label: 'PERDIDAS',
+          label: 'PH',
           data: ['250', '350', '670', '450'],
           fill: false,
           borderColor: '#8D6EB1',
           tension: 0.1,
         },
         {
-          label: 'BODEGA',
+          label: 'Oxigeno',
           data: ['300', '750', '800', '500'],
           fill: false,
-          borderColor: '#FF336B',
+          borderColor: '#066FFF',
           tension: 0.1,
         }
       ],
