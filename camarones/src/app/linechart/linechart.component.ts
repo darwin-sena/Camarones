@@ -13,93 +13,159 @@ Chart.register(...registerables);
 })
 export class LinechartComponent implements OnInit {
 
-  public lineConfig: any = {
+  public lineConfig1: any = {
     type: 'line',
     data: {
-      labels: ['CANTIDAD', 'PESO'],
+      labels: ['ENERO','JUNIO', 'DICIEMBRE'],
       datasets: [
         {
-          label: 'COMPRAS',
-          data: ['467', '576', '600', '574'],
+          label: 'OXIGENO',
+          data: [200, 576, 680],
           fill: false,
           borderColor: '#A8699F',
           tension: 0.1,
+          borderWidth: 3,
+          pointRadius: 5
         },
-        {
-          label: 'PERDIDAS',
-          data: ['250', '350', '670', '450'],
-          fill: false,
-          borderColor: '#8D6EB1',
-          tension: 0.1,
-        },
-        {
-          label: 'BODEGA',
-          data: ['300', '750', '800', '500'],
-          fill: false,
-          borderColor: '#FF336B',
-          tension: 0.1,
-        }
       ],
     },
-
     options: {
-      aspectRatio: 4,
+      responsive: true,
+      maintainAspectRatio: true,
+      aspectRatio: 1.5,
       onClick: (event: any, elements: any) => {
         if (elements.length > 0) {
           const datasetIndex = elements[0].datasetIndex;
           const dataIndex = elements[0].index;
-
-          const value = this.lineConfig.data.datasets[datasetIndex].data[dataIndex];
-
-          this.updateSemaforo(value);
+          const value = this.lineConfig1.data.datasets[datasetIndex].data[dataIndex];
+          this.updateSemaforo('semaforo1', value);
         }
       },
     },
-
   };
 
-  public barConfig: any = {
-    type: 'bar',
+  public lineConfig2: any = {
+    type: 'line',
     data: {
-      labels: ['Enero', 'Febrero', 'Marzo', 'Abril'],
+      labels: ['ENERO','JUNIO', 'DICIEMBRE'],
       datasets: [
         {
-          label: 'VENTAS',
-          data: [300, 500, 400, 700],
-          backgroundColor: '#3498DB',
-        },
-        {
-          label: 'PERDIDAS',
-          data: [50, 200, 150, 250],
-          backgroundColor: '#E74C3C',
-        },
+          label: 'TEMPERATURA',
+          data: [333, 520, 800],
+          fill: false,
+          borderColor: '#FF336B',
+          tension: 0.1,
+          borderWidth: 3,
+          pointRadius: 5
+        }
       ],
     },
     options: {
-      aspectRatio: 2,
+      responsive: true,
+      maintainAspectRatio: true,
+      aspectRatio: 1.5,
+      onClick: (event: any, elements: any) => {
+        if (elements.length > 0) {
+          const datasetIndex = elements[0].datasetIndex;
+          const dataIndex = elements[0].index;
+          const value = this.lineConfig2.data.datasets[datasetIndex].data[dataIndex];
+          this.updateSemaforo('semaforo2', value);
+        }
+      },
+    },
+  };
+
+  public lineConfig3: any = {
+    type: 'line',
+    data: {
+      labels: ['ENERO','JUNIO', 'DICIEMBRE'],
+      datasets: [
+        {
+          label: 'SALINIDAD',
+          data: [300, 480, 660],
+          fill: false,
+          borderColor: '#3498DB',
+          tension: 0.1,
+          borderWidth: 3,
+          pointRadius: 5
+        }
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      aspectRatio: 1.5,
+      onClick: (event: any, elements: any) => {
+        if (elements.length > 0) {
+          const datasetIndex = elements[0].datasetIndex;
+          const dataIndex = elements[0].index;
+          const value = this.lineConfig3.data.datasets[datasetIndex].data[dataIndex];
+          this.updateSemaforo('semaforo3', value);
+        }
+      },
+    },
+  };
+
+  public lineConfig4: any = {
+    type: 'line',
+    data: {
+      labels: ['ENERO','JUNIO', 'DICIEMBRE'],
+      datasets: [
+        {
+          label: 'PH',
+          data: [250, 440, 800],
+          fill: false,
+          borderColor: '#2ECC71',
+          tension: 0.1,
+          borderWidth: 3,
+          pointRadius: 5
+        }
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      aspectRatio: 1.5,
+      onClick: (event: any, elements: any) => {
+        if (elements.length > 0) {
+          const datasetIndex = elements[0].datasetIndex;
+          const dataIndex = elements[0].index;
+          const value = this.lineConfig4.data.datasets[datasetIndex].data[dataIndex];
+          this.updateSemaforo('semaforo4', value);
+        }
+      },
     },
   };
 
   ngOnInit(): void {
-    const canvas = document.getElementById('MyLineChart') as HTMLCanvasElement;
-    if (canvas) {
-      new Chart(canvas, this.lineConfig);
+    const canvas1 = document.getElementById('MyLineChart1') as HTMLCanvasElement;
+    if (canvas1) {
+      new Chart(canvas1, this.lineConfig1);
     }
 
-    const barCanvas = document.getElementById('MyBarChart') as HTMLCanvasElement;
-    if (barCanvas) {
-      new Chart(barCanvas, this.barConfig);
+    const canvas2 = document.getElementById('MyLineChart2') as HTMLCanvasElement;
+    if (canvas2) {
+      new Chart(canvas2, this.lineConfig2);
+    }
+
+    const canvas3 = document.getElementById('MyLineChart3') as HTMLCanvasElement;
+    if (canvas3) {
+      new Chart(canvas3, this.lineConfig3);
+    }
+
+    const canvas4 = document.getElementById('MyLineChart4') as HTMLCanvasElement;
+    if (canvas4) {
+      new Chart(canvas4, this.lineConfig4);
     }
   }
 
-  updateSemaforo(value: number): void {
-    const redLight = document.getElementById('red-light') as HTMLElement;
-    const yellowLight = document.getElementById('yellow-light') as HTMLElement;
-    const greenLight = document.getElementById('green-light') as HTMLElement;
-    const semaforoMessage = document.getElementById('semaforo-message') as HTMLElement;
+  updateSemaforo(semaforoId: string, value: number): void {
+    const redLight = document.getElementById(`${semaforoId}-red`) as HTMLElement;
+    const yellowLight = document.getElementById(`${semaforoId}-yellow`) as HTMLElement;
+    const greenLight = document.getElementById(`${semaforoId}-green`) as HTMLElement;
+    const semaforoMessage = document.getElementById(`${semaforoId}-message`) as HTMLElement;
 
     if (redLight && yellowLight && greenLight && semaforoMessage) {
-
       redLight.style.backgroundColor = 'grey';
       yellowLight.style.backgroundColor = 'grey';
       greenLight.style.backgroundColor = 'grey';
@@ -120,5 +186,4 @@ export class LinechartComponent implements OnInit {
       console.error('No se pudieron encontrar los elementos del semáforo');
     }
   }
-
 }

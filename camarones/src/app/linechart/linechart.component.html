@@ -30,26 +30,52 @@
 
 <div class="container mt-5 pt-5">
   <div class="row">
-
-    <div class="col-md-8">
-      <h2>Line Chart</h2>
-      <canvas id="MyLineChart" style="width: 100%; height: 400px;"></canvas>
-
-      <div id="semaforo"
-        style="display: flex; justify-content: center; align-items: center; padding: 10px; margin-top: 20px;">
-        <div id="red-light"
-          style="width: 80px; height: 80px; border-radius: 50%; background-color: grey; margin: 10px;"></div>
-        <div id="yellow-light"
-          style="width: 80px; height: 80px; border-radius: 50%; background-color: grey; margin: 10px;"></div>
-        <div id="green-light"
-          style="width: 80px; height: 80px; border-radius: 50%; background-color: grey; margin: 10px;"></div>
+    <!-- Gráfico de Línea 1 -->
+    <div class="col-md-3">
+      <h2>Grafico 1</h2>
+      <canvas id="MyLineChart1" style="width: 100%; height: 300px;"></canvas>
+      <div id="semaforo1" class="semaforo-container">
+        <div id="semaforo1-red" class="semaforo-light"></div>
+        <div id="semaforo1-yellow" class="semaforo-light"></div>
+        <div id="semaforo1-green" class="semaforo-light"></div>
       </div>
-      <p id="semaforo-message" style="text-align: center; font-weight: bold; margin-top: 10px;">Estado del valor</p>
+      <p id="semaforo1-message" class="semaforo-message">Estado del valor</p>
     </div>
 
-    <div class="col-md-4">
-      <h2>Bar Chart</h2>
-      <canvas id="MyBarChart" style="width: 100%; height: 300px;"></canvas>
+    <!-- Gráfico de Línea 2 -->
+    <div class="col-md-3">
+      <h2>Grafico 2</h2>
+      <canvas id="MyLineChart2" style="width: 100%; height: 300px;"></canvas>
+      <div id="semaforo2" class="semaforo-container">
+        <div id="semaforo2-red" class="semaforo-light"></div>
+        <div id="semaforo2-yellow" class="semaforo-light"></div>
+        <div id="semaforo2-green" class="semaforo-light"></div>
+      </div>
+      <p id="semaforo2-message" class="semaforo-message">Estado del valor</p>
+    </div>
+
+    <!-- Gráfico de Línea 3 -->
+    <div class="col-md-3">
+      <h2>Grafico 3</h2>
+      <canvas id="MyLineChart3" style="width: 100%; height: 300px;"></canvas>
+      <div id="semaforo3" class="semaforo-container">
+        <div id="semaforo3-red" class="semaforo-light"></div>
+        <div id="semaforo3-yellow" class="semaforo-light"></div>
+        <div id="semaforo3-green" class="semaforo-light"></div>
+      </div>
+      <p id="semaforo3-message" class="semaforo-message">Estado del valor</p>
+    </div>
+
+    <!-- Gráfico de Línea 4 -->
+    <div class="col-md-3">
+      <h2>Grafico 4</h2>
+      <canvas id="MyLineChart4" style="width: 100%; height: 300px;"></canvas>
+      <div id="semaforo4" class="semaforo-container">
+        <div id="semaforo4-red" class="semaforo-light"></div>
+        <div id="semaforo4-yellow" class="semaforo-light"></div>
+        <div id="semaforo4-green" class="semaforo-light"></div>
+      </div>
+      <p id="semaforo4-message" class="semaforo-message">Estado del valor</p>
     </div>
   </div>
 </div>
@@ -59,35 +85,23 @@
     <div class="row">
       <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
         <h5 class="text-uppercase">Acerca de</h5>
-        <p>
-          Paramétricas para cultivo de camarones.
-        </p>
+        <p>Paramétricas para cultivo de camarones.</p>
       </div>
 
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
         <h5 class="text-uppercase">Enlaces útiles</h5>
         <ul class="list-unstyled mb-0">
-          <li>
-            <a href="#!" class="text-white">Política de Privacidad</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Términos y Condiciones</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Soporte</a>
-          </li>
+          <li><a href="#!" class="text-white">Política de Privacidad</a></li>
+          <li><a href="#!" class="text-white">Términos y Condiciones</a></li>
+          <li><a href="#!" class="text-white">Soporte</a></li>
         </ul>
       </div>
 
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
         <h5 class="text-uppercase">Contacto</h5>
         <ul class="list-unstyled">
-          <li>
-            <a href="#!" class="text-white">Email: camarones&#64;co.com</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Teléfono: +57 123 456 7890</a>
-          </li>
+          <li><a href="#!" class="text-white">Email: camarones&#64;co.com</a></li>
+          <li><a href="#!" class="text-white">Teléfono: +57 123 456 7890</a></li>
         </ul>
       </div>
     </div>
@@ -106,3 +120,26 @@
     </div>
   </div>
 </footer>
+
+<style>
+  .semaforo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  .semaforo-light {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: grey;
+    margin: 10px;
+  }
+  .semaforo-message {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.2em;
+  }
+</style>
