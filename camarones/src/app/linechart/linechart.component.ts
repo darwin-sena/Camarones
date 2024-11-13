@@ -20,7 +20,7 @@ export class LinechartComponent implements OnInit {
       datasets: [
         {
           label: 'OXIGENO',
-          data: [200, 576, 680],
+          data: [0.8, 35, 105],
           fill: false,
           borderColor: '#A8699F',
           tension: 0.1,
@@ -51,7 +51,7 @@ export class LinechartComponent implements OnInit {
       datasets: [
         {
           label: 'TEMPERATURA',
-          data: [333, 520, 800],
+          data: [6, 70, 500],
           fill: false,
           borderColor: '#FF336B',
           tension: 0.1,
@@ -82,7 +82,7 @@ export class LinechartComponent implements OnInit {
       datasets: [
         {
           label: 'SALINIDAD',
-          data: [300, 480, 660],
+          data: [3.6, 60, 200],
           fill: false,
           borderColor: '#3498DB',
           tension: 0.1,
@@ -113,7 +113,7 @@ export class LinechartComponent implements OnInit {
       datasets: [
         {
           label: 'PH',
-          data: [250, 440, 800],
+          data: [0.5, 40, 100],
           fill: false,
           borderColor: '#2ECC71',
           tension: 0.1,
@@ -172,13 +172,13 @@ export class LinechartComponent implements OnInit {
 
       semaforoMessage.textContent = "Estado del valor";
 
-      if (value >= 600) {
+      if (value >= 100) {
         redLight.style.backgroundColor = 'red';
         semaforoMessage.textContent = "Valor negativo";
-      } else if (value >= 400) {
+      } else if (value >= 35) {
         yellowLight.style.backgroundColor = 'yellow';
         semaforoMessage.textContent = "Valor regular";
-      } else if (value >= 200) {
+      } else if (value >= 0.5) {
         greenLight.style.backgroundColor = 'green';
         semaforoMessage.textContent = "Valor positivo";
       }
